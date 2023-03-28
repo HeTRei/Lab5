@@ -6,6 +6,8 @@ int t;
 int counter = 0;
 float X0, Xk, x, y, h;
 
+int height = 0;
+
 int prompt()
 {
     cout << "Введiть данi:\n" << endl;
@@ -27,7 +29,7 @@ int horizontalLines()
         counter++;
     }
     else
-        cout << "---------------------";
+        cout << "---------------------" << endl;
     return 0;
 }
 int calc()
@@ -44,6 +46,30 @@ int calc()
     return 0;
 }
 
+int triangleDraw()
+{
+    cout << "Input height of triangle: ";
+    cin >> height;
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 1; j < height - i; j++)
+        {
+            cout << ' ';
+        }
+        for (int j = height - 2 * i; j <= height; j++)
+        {
+            cout << '^';
+        }
+        cout << endl;
+    }
+    return 0;
+}
+int triangleHeight()
+{
+    cout << endl << "Height of the triangle is " << height << endl;
+    return 0;
+}
+
 int main()
 {
     setlocale (LC_CTYPE, "ua");
@@ -51,5 +77,7 @@ int main()
     horizontalLines();
     calc();
     horizontalLines();
+    triangleDraw();
+    triangleHeight();
     return 0;
 }
