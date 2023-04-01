@@ -5,13 +5,14 @@
 #include <limits>
 using namespace std;
 
+// Функція, що містить код з лабораторної роботи №3
 int lab3()
 {
     double sum, prod, fac_product;
     long long k, i, n, fac_counter;
     cout << "Press S to perform summation, press M to perform multiplication" << endl;
     char selection = _getch();
-    if (selection == 'S' or selection == 's')
+    if (selection == 'S' or selection == 's') // Цикл операції додавання
     {
         cout << "Enter the value of n: ";
         cin >> n;
@@ -21,26 +22,26 @@ int lab3()
             exit(1);
         }
         cout << "Notice! If the value from user input is not an integer, then the input will be cut off in a way that will only leave the integer part of the input" << endl;
-        for (sum = 0.0, k = 1; k <= n; k++)
+        for (sum = 0.0, k = 1; k <= n; k++) // Цикл обчислення виразу
         {
-            for (fac_counter = 1, fac_product = 1.0; fac_counter <= k; fac_counter++)
+            for (fac_counter = 1, fac_product = 1.0; fac_counter <= k; fac_counter++) // Цикл розрахунку факторіалів
             {
                 fac_product = fac_product * fac_counter;
             }
-            sum = sum + ((pow(k, n) / (fac_product))*pow(-1, k+n)) + 0.0;
+            sum = sum + ((pow(k, n) / (fac_product))*pow(-1, k+n)) + 0.0; // Обчислення суми при поточному доданку
         }
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "The result of summation is " << sum << endl;
     }
-    else if (selection == 'M' or selection == 'm')
+    else if (selection == 'M' or selection == 'm') // Цикл операції множення
     {
-        for (prod = 1.0, i = 1; i <= 10; i++)
+        for (prod = 1.0, i = 1; i <= 10; i++) // Цикл обчислення виразу
         {
-            for (fac_counter = 1, fac_product = 1.0; fac_counter <= i; fac_counter++)
+            for (fac_counter = 1, fac_product = 1.0; fac_counter <= i; fac_counter++) // Цикл розрахунку факторіалів
             {
                 fac_product = fac_product * fac_counter;
             }
-            prod = prod * ((1 / fac_product) - pow(i, 2)) + 0.0;
+            prod = prod * ((1 / fac_product) - pow(i, 2)) + 0.0; // Обчислення добутку
         }
         cout << "The result of multiplication is " << prod << endl;
     }
@@ -51,22 +52,24 @@ int lab3()
     }
     cout << endl << "Press R to restart, press any other key to exit";
     char restart = _getch();
-    if (restart == 'r' or restart == 'R')
+    if (restart == 'r' or restart == 'R') // Якщо натиснуто кнопку R, програма розрахунків перезапускається
     {
         cout << endl;
         lab3();
     }
     return 0;
 }
+
+// Функція, що містить код лабораторної роботи №4
 int lab4()
 {
     double dx, Integrl;
     double a = 0;
-    double b = atan(1)*2;
+    double b = atan(1)*2; // Ініціалізація змінної b зі значенням, рівним числу Пі
     int n;
 
     char restart = 'r';
-    while (restart == 'R' or restart == 'r')
+    while (restart == 'R' or restart == 'r') // Основний цикл функції
     {
         cout << "Enter the amount of sectors n: ";
         cin >> n;
@@ -76,11 +79,11 @@ int lab4()
             exit(1);
         }
 
-        dx = (b - a) / n;
+        dx = (b - a) / n; // Розрахунок ширини одного сектора
 
         Integrl = 0;
 
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < n; i++) // Цикл розрахунку інтеграла
         {
             double x = a + i * dx;
 
@@ -89,12 +92,14 @@ int lab4()
             Integrl += f * dx;
         }
 
-        cout << "The integral is: " << fixed << setprecision(4) << Integrl << endl;
+        cout << "The integral is: " << fixed << setprecision(4) << Integrl << endl; // Виведення значення інтеграла з чотирма цифрами після після крапки
 
         cout << "Press R to restart, any other key to exit" << endl;
         restart = _getch();
     }
 }
+
+// Функція для вибору функцій
 int LabSelect()
 {
     char LabSelect;

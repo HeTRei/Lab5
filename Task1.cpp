@@ -42,7 +42,7 @@ int horizontalLines()
 int calc()
 {
     x = X0;
-    while (x < Xk) // Цикл що діє допоки x не сягне значення Xk
+    while (x < Xk) // Цикл, що діє допоки x не сягне значення Xk
     {
         if (x <= 0) y = x;
         else if (x <= 10) y = t * x;
@@ -53,11 +53,17 @@ int calc()
     return 0;
 }
 
-// Функція, що запитує значення висоти, потім малюючи трикутник з цією висотою
-int triangleDraw()
+// Функція, що запитує значення висоти трикутника
+int triangleHeight()
 {
     cout << "Input height of triangle: ";
     cin >> height;
+    return 0;
+}
+
+// Функція, що малює трикутник з заданою висотою
+int triangleDraw()
+{
     for (int i = 0; i < height; i++)
     {
         for (int j = 1; j < height - i; j++) // Цикл виведення пропусків
@@ -73,14 +79,6 @@ int triangleDraw()
     return 0;
 }
 
-// Функція, що виводить значення висоти трикутника в консоль
-int triangleHeight()
-{
-    cout << endl << "Height of the triangle is " << height << endl;
-    return 0;
-}
-
-// Основна функція
 int main()
 {
     setlocale (LC_CTYPE, "ua");
@@ -88,7 +86,7 @@ int main()
     horizontalLines();
     calc();
     horizontalLines();
-    triangleDraw();
     triangleHeight();
+    triangleDraw();
     return 0;
 }
